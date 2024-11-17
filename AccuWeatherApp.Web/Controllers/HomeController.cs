@@ -2,7 +2,7 @@ using AccuWeatherApp.Web.Configuration;
 using AccuWeatherApp.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace AccuWeatherApp.Web.Controllers
 {
@@ -35,35 +35,19 @@ namespace AccuWeatherApp.Web.Controllers
                 }
 
                 var jsonResponse = await response.Content.ReadAsStringAsync();
+                var cityList = JsonConvert.DeserializeObject<List<CityViewModel>>(jsonResponse);
 
-                var jsonArray = JArray.Parse(jsonResponse);
-                var cities = new List<CityViewModel>();
-
-                foreach (var item in jsonArray)
+                if (cityList == null || !cityList.Any())
                 {
-                    var cityViewModel = new CityViewModel
-                    {
-                        Id = item["key"]?.ToString(),
-                        Name = item["cityName"]?.ToString(),
-                        Country = item["country"]?["countryName"]?.ToString(),
-                        Region = item["country"]?["id"]?.ToString(),
-                        AdministrativeAreaName = item["administrativeArea"]?["countryName"]?.ToString()
-                    };
-
-                    cities.Add(cityViewModel);
-                }
-
-                if (cities.Count == 0)
-                {
-                    ViewBag.Error = "No cities found";
+                    ViewBag.Error = "No cities found.";
                     return View("Index");
                 }
 
-                return View("Cities", cities);
+                return View("Cities", cityList);
             }
-            catch
+            catch (Exception ex)
             {
-                ViewBag.Error = "An error occured while searching for cities";
+                ViewBag.Error = $"An error occured while searching for cities. {ex.Message}";
                 return View("Index");
             }
         }
@@ -81,27 +65,22 @@ namespace AccuWeatherApp.Web.Controllers
                     return View("Index");
                 }
 
-                var json = await response.Content.ReadAsStringAsync();
-                var jsonObject = JObject.Parse(json);
+                var jsonResponse = await response.Content.ReadAsStringAsync();
+                var weather = JsonConvert.DeserializeObject<WeatherViewModel>(jsonResponse);
 
-                var temperatureC = jsonObject["temperature"]?["celsius"]?["value"]?.ToObject<double>() ?? 0;
-                var temperatureF = jsonObject["temperature"]?["fahrenheit"]?["value"]?.ToObject<double>() ?? 0;
-                var isRain = jsonObject["isRain"]?.ToObject<bool>() ?? false;
-
-                var weather = new WeatherViewModel
+                if (weather == null)
                 {
-                    Id = locationKey,
-                    TemperatureC = temperatureC,
-                    TemperatureF = temperatureF,
-                    IsRain = isRain
-                };
+                    ViewBag.Error = "Weather data not found.";
+                    return View("Index");
+                }
+
                 ViewBag.CityName = cityName;
                 ViewBag.AdministrativeArea = administrativeAreaName;
                 return View("WeatherDetails", weather);
             }
-            catch
+            catch (Exception ex)
             {
-                ViewBag.Error = "An error occured while retrieving weather data";
+                ViewBag.Error = $"An error occured while retrieving weather data, {ex.Message}";
                 return View("Index");
             }
         }

@@ -1,5 +1,3 @@
-using Newtonsoft.Json;
-
 namespace AccuWeatherApp.Data.Models.Forecast
 {
     /// <summary>
@@ -7,6 +5,6 @@ namespace AccuWeatherApp.Data.Models.Forecast
     /// </summary>
     public class DailyForecastResponse
     {
-        [JsonProperty(nameof(DailyForecasts))] public List<DailyForecast>? DailyForecasts { get; set; }
+        public List<DailyForecast>? DailyForecasts { get; set; }
     }
 }

@@ -38,6 +38,8 @@ namespace AccuWeatherApp.WebApi
             builder.Logging.AddConsole();
             builder.Logging.SetMinimumLevel(LogLevel.Debug);
 
+            builder.Services.AddAutoMapper(typeof(AccuAutoMapper));
+
             var app = builder.Build();
             app.UseSwagger();
             app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/AccuWeatherAPP/swagger.json", "AccuWeather API"); });

@@ -1,4 +1,4 @@
-using AccuWeatherApp.Data.Models.Weather;
+using AccuWeatherApp.Models.DTO;
 using AccuWeatherApp.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -27,11 +27,18 @@ namespace AccuWeatherApp.WebApi.Controllers
                 "Returns a Weather Forecast object containing temperatures (Metric and Imperial) and rain forecast")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<WeatherForecast>> GetForecast(string locationKey)
+        public async Task<ActionResult<WeatherDto>> GetForecast(string locationKey)
         {
-            var forecast = await _weatherService.GetCurrentWeatherAsync(locationKey);
-            if (forecast == null) return NotFound("Weather data not found");
-            return Ok(forecast);
+            try
+            {
+                var forecast = await _weatherService.GetCurrentWeatherAsync(locationKey);
+                if (forecast == null) return NotFound("Weather data not found");
+                return Ok(forecast);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
     }
 }
