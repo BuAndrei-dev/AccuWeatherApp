@@ -1,0 +1,19 @@
+﻿@model List<AccuWeatherApp.Web.Models.CityViewModel>
+
+<h2>Select a City</h2>
+
+<ul>
+    @foreach (var city in Model)
+    {
+        <li>
+            <form action="/Home/GetWeather" method="get">
+                <input type="hidden" name="locationKey" value="@city.Id"/>
+                <input type="hidden" name="cityName" value="@city.Name, @city.Country"/>
+                <input type="hidden" name="administrativeArea" value="@city.AdministrativeAreaName"/>
+                <button type="submit">
+                    @city.Name, @city.AdministrativeAreaName, @city.Region (@city.Country)
+                </button>
+            </form>
+        </li>
+    }
+</ul>
