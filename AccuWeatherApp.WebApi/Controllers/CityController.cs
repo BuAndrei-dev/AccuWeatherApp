@@ -1,4 +1,4 @@
-using AccuWeatherApp.Data.Models.City;
+using AccuWeatherApp.Models.DTO;
 using AccuWeatherApp.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -26,12 +26,19 @@ namespace AccuWeatherApp.WebApi.Controllers
             Description = "Returns a list of cities matching the provided name")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<CityResult>>> SearchCities(string cityName)
+        public async Task<ActionResult<List<CityDto>>> SearchCities(string cityName)
         {
-            var cities = await _cityService.SearchCitiesByNameAsync(cityName);
-            if (cities == null || !cities.Any()) return NotFound("No cities found");
+            try
+            {
+                var cities = await _cityService.SearchCitiesByNameAsync(cityName);
+                if (!cities.Any()) return NotFound("No cities found");
 
-            return Ok(cities);
+                return Ok(cities);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
+            }
         }
     }
 }

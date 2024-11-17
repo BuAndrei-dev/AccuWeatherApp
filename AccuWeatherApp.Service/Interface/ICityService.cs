@@ -1,4 +1,5 @@
 using AccuWeatherApp.Data.Models.City;
+using AccuWeatherApp.Models.DTO;
 
 namespace AccuWeatherApp.Service.Interface
 {
@@ -12,6 +13,6 @@ namespace AccuWeatherApp.Service.Interface
         /// </summary>
         /// <param name="cityName">The name of the city we are searching for</param>
         /// <returns>IEnumerable with City Result objects containing multiple data about Cities </returns>
-        Task<IEnumerable<CityResult>?> SearchCitiesByNameAsync(string cityName);
+        Task<IEnumerable<CityDto>> SearchCitiesByNameAsync(string cityName);
     }
 }

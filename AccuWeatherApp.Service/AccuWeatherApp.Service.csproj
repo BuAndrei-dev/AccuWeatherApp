@@ -8,9 +8,12 @@
 
     <ItemGroup>
         <ProjectReference Include="..\AccuWeatherApp.Data\AccuWeatherApp.Data.csproj"/>
+        <ProjectReference Include="..\AccuWeatherApp.Models\AccuWeatherApp.Models.csproj"/>
+        <ProjectReference Include="..\AccuWeatherApp.Web\AccuWeatherApp.Web.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="13.0.1"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
 

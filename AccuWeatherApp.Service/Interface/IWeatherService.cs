@@ -1,4 +1,4 @@
-using AccuWeatherApp.Data.Models.Weather;
+using AccuWeatherApp.Models.DTO;
 
 namespace AccuWeatherApp.Service.Interface
 {
@@ -9,6 +9,6 @@ namespace AccuWeatherApp.Service.Interface
         /// </summary>
         /// <param name="cityKey">Unique Location key from Accu Weather</param>
         /// <returns>A Weather Forecast object containing multiple data about the weather forecast</returns>
-        Task<WeatherForecast?> GetCurrentWeatherAsync(string cityKey);
+        Task<WeatherDto?> GetCurrentWeatherAsync(string cityKey);
     }
 }
