@@ -1,0 +1,9 @@
+﻿@model AccuWeatherApp.Web.Models.WeatherViewModel
+
+<h2>Weather Forecast for @ViewBag.CityName, @ViewBag.AdministrativeArea</h2>
+
+<p>Temperature: @Model.TemperatureC°C</p>
+<p>Temperature: @Model.TemperatureF°F</p>
+<p>Will it rain today? @(Model.IsRain ? "Yes" : "No")</p>
+
+<a href="/">Back to Home</a>

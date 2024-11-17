@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccuWeatherApp.WebApi", "AccuWeatherApp.WebApi\AccuWeatherApp.WebApi.csproj", "{DC871FF7-F787-40CE-BD8C-74B2C5951D50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccuWeatherApp.Service", "AccuWeatherApp.Service\AccuWeatherApp.Service.csproj", "{2A93AA45-801C-4A42-9AF6-5F871CC93113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccuWeatherApp.Data", "AccuWeatherApp.Data\AccuWeatherApp.Data.csproj", "{338631B4-FD69-4C18-8325-DA4D68FBFC43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccuWeatherApp.Web", "AccuWeatherApp.Web\AccuWeatherApp.Web.csproj", "{D1B69EA3-BC04-4A6D-A80B-94DD07FD41DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC871FF7-F787-40CE-BD8C-74B2C5951D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC871FF7-F787-40CE-BD8C-74B2C5951D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC871FF7-F787-40CE-BD8C-74B2C5951D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC871FF7-F787-40CE-BD8C-74B2C5951D50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A93AA45-801C-4A42-9AF6-5F871CC93113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A93AA45-801C-4A42-9AF6-5F871CC93113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A93AA45-801C-4A42-9AF6-5F871CC93113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A93AA45-801C-4A42-9AF6-5F871CC93113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{338631B4-FD69-4C18-8325-DA4D68FBFC43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{338631B4-FD69-4C18-8325-DA4D68FBFC43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{338631B4-FD69-4C18-8325-DA4D68FBFC43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{338631B4-FD69-4C18-8325-DA4D68FBFC43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B69EA3-BC04-4A6D-A80B-94DD07FD41DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B69EA3-BC04-4A6D-A80B-94DD07FD41DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B69EA3-BC04-4A6D-A80B-94DD07FD41DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B69EA3-BC04-4A6D-A80B-94DD07FD41DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Weather App";
+}
+
+<h1>Weather App</h1>
+
+<form action="/Home/SearchCity" method="post">
+    <div>
+        <label for="cityName">Enter City Name:</label>
+        <input type="text" id="cityName" name="cityName" placeholder="e.g., Paris" required/>
+        <button type="submit">Search</button>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <p style="color: red;">@ViewBag.Error</p>
+    }
+</form>
+
+
+<ul>
+    <li>
+        <form action="/Home/SearchCity" method="POST">
+            <input type="hidden" name="cityName" value="Bucuresti"/>
+            <button type="submit">Bucuresti</button>
+        </form>
+    </li>
+    <li>
+        <form action="/Home/SearchCity" method="POST">
+            <input type="hidden" name="cityName" value="Paris"/>
+            <button type="submit">Paris</button>
+        </form>
+    </li>
+    <li>
+        <form action="/Home/SearchCity" method="POST">
+            <input type="hidden" name="cityName" value="Bruxelles"/>
+            <button type="submit">Bruxelles</button>
+        </form>
+    </li>
+    <li>
+        <form action="/Home/SearchCity" method="POST">
+            <input type="hidden" name="cityName" value="Milano"/>
+            <button type="submit">Milano</button>
+        </form>
+    </li>
+</ul>
