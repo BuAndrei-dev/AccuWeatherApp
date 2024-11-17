@@ -1,0 +1,54 @@
+# Rider IDE files
+.idea/
+*.sln.iml
+
+# .NET build directories
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs
+*.log
+
+# Rider-specific files
+.idea/
+*.sln.iml
+*.dotCover
+
+# Visual Studio Code settings
+.vscode/
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# Dotnet user folder
+dotnet_tools/
+
+# VS Code and Rider specific files
+.vscode/
+.idea/
+.idea_modules/
+
+# MacOS-specific files
+.DS_Store
+
+# Resharper settings
+_ReSharper.Caches
+
+# Temporary files
+~$*
+*.tmp
+*.bak
+*.swp
+*.pid
+
+# Build artifacts
+publish/
